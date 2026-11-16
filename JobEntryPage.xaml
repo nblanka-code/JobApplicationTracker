@@ -1,0 +1,70 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JobApplicationTracker.JobEntryPage"
+             Title="Job Details">
+    <ScrollView>
+        <Grid ColumnDefinitions="*, *" ColumnSpacing="10" Padding="10">
+            
+            <VerticalStackLayout Grid.Column="0" Spacing="10">
+                <VerticalStackLayout>
+                    <Label Text="Position:" FontAttributes="Bold" />
+                    <Entry x:Name="JobTitleEntry" Placeholder="e.g. Software Engineer" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label Text="Company:" FontAttributes="Bold" />
+                    <Entry x:Name="CompanyNameEntry" Placeholder="e.g. Microsoft" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label Text="Job Description:" FontAttributes="Bold" />
+                    <Editor x:Name="JobDescriptionEditor" Placeholder="Enter description..." HeightRequest="100" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label Text="Salary:" FontAttributes="Bold" />
+                    <Entry x:Name="SalaryEntry" Placeholder="e.g. 400.000 HUF per month" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label Text="Weekly Hours:" FontAttributes="Bold" />
+                    <Entry x:Name="WeeklyHoursEntry" Keyboard="Numeric" Placeholder="e.g. 40" />
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1" Spacing="6.7">
+                <VerticalStackLayout>
+                    <Label Text="City:" FontAttributes="Bold" />
+                    <Entry x:Name="CityEntry" Placeholder="e.g. Budapest" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label Text="Address:" FontAttributes="Bold" />
+                    <Entry x:Name="StreetAddressEntry" Placeholder="e.g. Vaci Street 1, district XIII" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label Text="Application Date:" FontAttributes="Bold" />
+                    <DatePicker x:Name="ApplicationDatePicker" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label Text="Contact Status:" FontAttributes="Bold" />
+                    <Entry x:Name="ContactStatusEntry" Placeholder="Phone / Email / None" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout>
+                    <Label Text="Interview" FontAttributes="Bold" />
+                    <Entry x:Name="InterviewDateEntry" Placeholder="Date and Adress / None" />
+                </VerticalStackLayout>
+
+                <Button Text="Save Application" 
+                        Clicked="OnSaveClicked" 
+                        BackgroundColor="#107C10" 
+                        TextColor="White" 
+                        Margin="0,20,0,0" />
+            </VerticalStackLayout>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

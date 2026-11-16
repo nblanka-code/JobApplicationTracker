@@ -1,0 +1,60 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JobApplicationTracker.MainPage"
+             Title="Job Application Tracker">
+
+    <Grid RowDefinitions="Auto, Auto" Padding="20" RowSpacing="15">
+        <Grid Grid.Row="0" ColumnDefinitions="*, *, *" ColumnSpacing="10">
+            <VerticalStackLayout Grid.Column="0">
+                <Entry x:Name="searchEntry" Placeholder="Search position or company..." TextChanged="OnSearchTextChanged"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="1">
+                <Button x:Name="filterBtn" Text="Filter and Sort..." BackgroundColor="#CBCBCB" TextColor="Black" Clicked="filterBtn_Clicked"></Button>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="2">
+                <Button x:Name="addNewBtn" Text="Add new application" BackgroundColor="#FFDB58" TextColor="Black" Clicked="addNewBtn_Clicked"></Button>
+            </VerticalStackLayout>
+        </Grid>
+
+        <CollectionView Grid.Row="1" x:Name="applicationsView">
+            <CollectionView.Header>
+                <Grid ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*" ColumnSpacing="1.4">
+                    <Label Grid.Column="0" Text="Position" Padding="5,10" BackgroundColor="#d3d3d3" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" FontSize="12"/>
+                    <Label Grid.Column="1" Text="Company" Padding="5,10" BackgroundColor="#a9a9a9" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" FontSize="12"/>
+                    <Label Grid.Column="2" Text="Job description" Padding="5,10" BackgroundColor="#d3d3d3" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" FontSize="12"/>
+                    <Label Grid.Column="3" Text="Salary" Padding="5,10" BackgroundColor="#a9a9a9" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" FontSize="12"/>
+                    <Label Grid.Column="4" Text="Weekly hours" Padding="5,10" BackgroundColor="#d3d3d3" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" FontSize="12"/>
+                    <Label Grid.Column="5" Text="City" Padding="5,10" BackgroundColor="#a9a9a9" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" FontSize="12"/>
+                    <Label Grid.Column="6" Text="Address" Padding="5,10" BackgroundColor="#d3d3d3" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" FontSize="12"/>
+                    <Label Grid.Column="7" Text="Date of apply" Padding="5,10" BackgroundColor="#a9a9a9" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" FontSize="12"/>
+                    <Label Grid.Column="8" Text="Contact Status" Padding="5,10" BackgroundColor="#d3d3d3" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" FontSize="12"/>
+                    <Label Grid.Column="9" Text="Interview" Padding="5,10" BackgroundColor="#a9a9a9" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" FontSize="12"/>
+                    <Label Grid.Column="10" Text="Actions" Padding="5,10" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="White" FontSize="12"/>
+                </Grid>
+            </CollectionView.Header>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*" ColumnSpacing="1.4">
+                        <Label Grid.Column="0" Text="{Binding JobTitle}" Padding="5" Margin="0, 1" BackgroundColor="#d3d3d3" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="11"/>
+                        <Label Grid.Column="1" Text="{Binding CompanyName}" Padding="5" Margin="0, 1" BackgroundColor="#a9a9a9" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="11"/>
+                        <Label Grid.Column="2" Text="{Binding JobDescription}" Padding="5" Margin="0, 1" BackgroundColor="#d3d3d3" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="11"/>
+                        <Label Grid.Column="3" Text="{Binding Salary}" Padding="5" Margin="0, 1" BackgroundColor="#a9a9a9" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="11"/>
+                        <Label Grid.Column="4" Text="{Binding WeeklyWorkHours}" Margin="0, 1" Padding="5" BackgroundColor="#d3d3d3" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="11"/>
+                        <Label Grid.Column="5" Text="{Binding City}" Padding="5" Margin="0, 1" BackgroundColor="#a9a9a9" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="11"/>
+                        <Label Grid.Column="6" Text="{Binding StreetAddress}" Padding="5" Margin="0, 1" BackgroundColor="#d3d3d3" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="11"/>
+                        <Label Grid.Column="7" Text="{Binding ApplicationDate, StringFormat='{0:yyyy-MM-dd}'}" Padding="5" Margin="0, 1" BackgroundColor="#a9a9a9" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="11"/>
+                        <Label Grid.Column="8" Text="{Binding ContactStatus}" Padding="5" Margin="0, 1" BackgroundColor="#d3d3d3" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="11"/>
+                        <Label Grid.Column="9" Text="{Binding InterviewDate}" Padding="5" Margin="0, 1" BackgroundColor="#a9a9a9" TextColor="Black" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="11"/>
+
+                        <HorizontalStackLayout Grid.Column="10" Spacing="2" Padding="2" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Button Text="Edit" Clicked="OnEditClicked" BackgroundColor="#107C10" TextColor="Black" FontSize="10" Padding="4,2" />
+                            <Button Text="Delete" Clicked="OnDeleteClicked" BackgroundColor="#D83B01" TextColor="Black" FontSize="10" Padding="4,2" />
+                        </HorizontalStackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>
